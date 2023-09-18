@@ -1,0 +1,35 @@
+while True:
+
+    ps = float(16)
+    pd = float(15)
+
+    while True:
+        choix = int(input("- Pour choisir l'essence, tapez 1\n- Pour choisir le diesel, tapez 2\n: "))
+        if choix in [1, 2]:
+            break
+        else:
+            print("Choix invalide")
+
+    qte = float(input("Veuillez saisir combien de litres : "))
+
+    if qte > 100:
+            #DISCOUNT -5% (-_-)
+        if choix == 1:
+            pt = qte * ps * 0.95 
+        else:
+            pt = qte * pd * 0.95 
+    else:
+        if choix == 1:
+            pt = qte * ps
+        else:
+            pt = qte * pd
+
+    # Round the final price to two decimal places
+    pt = round(pt, 3)
+
+    print(f"Le prix total à payer est : ",pt," Dh")
+
+    restart = input("Pour une nouvelle opération, tapez 1 : ").strip().lower()
+    if restart != "1":
+        print("Au revoir!")
+        break
